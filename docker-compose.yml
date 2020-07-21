@@ -7,5 +7,3 @@ services:
   restart: always
   ports:
    - "8768:80"
-  #mem_limit: 300m    #  incase of application compromise it can't use resource more than 300m
-
