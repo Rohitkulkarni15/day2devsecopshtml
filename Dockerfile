@@ -8,6 +8,6 @@ ADD . .
 # source Destination
 EXPOSE 80
 # default httpd port
-ENTRYPOINT http -DFOREGROUND
+ENTRYPOINT httpd -DFOREGROUND
 # start web server as default process
 
