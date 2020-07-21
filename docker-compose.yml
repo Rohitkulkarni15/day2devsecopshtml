@@ -2,6 +2,7 @@ version: '3.8'
 services:
  rohithtmlapp:
   image: httpd:rohitv002
+  build: . 
   container_name: rohitc1
   restart: always
   ports:
