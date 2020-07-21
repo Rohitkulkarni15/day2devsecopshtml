@@ -1,10 +1,11 @@
 version: '3.8'
 services:
  rohithtmlapp:
-  image: httpd:rohitv002
-  container_name: rohitc1
+  image: httpd:rohitv0021
+  build: . 
+  container_name: rohitc11
   restart: always
   ports:
-   - "8765:80"
-  mem_limit: 300m    #  incase of application compromise it can't use resource more than 300m
+   - "8768:80"
+  #mem_limit: 300m    #  incase of application compromise it can't use resource more than 300m
 
