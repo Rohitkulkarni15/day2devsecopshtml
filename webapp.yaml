@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rohitwebapp01
+  name: rohitwebapp01 #name of deployment that must be unique
+spec:
+  replicas: 1 # means only one pod we need
+  selector:
+    matchLabels:
+      app: rohitwebapp01
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels: # this is tag on pods or we call it label
+        app: rohitwebapp01
+    spec:
+      containers:
+      - image: rohitkulkarni1512/devsecops:httpdv001 # name of image from docker hub
+        name: devsecops
+        imagePullPolicy: Always #try to pull image every time build is successful
+        resources: {}
+status: {}
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rohitwebs1
+  name: rohitwebs1
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector:  # this will find the pod with their labels
+    app: rohitwebapp01 #both key and value must match to pod label
+  type: NodePort
+status:
+  loadBalancer: {}
